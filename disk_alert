@@ -1,0 +1,28 @@
+#!/bin/bash
+
+
+# Script to monitor usage of your disk(s)
+# 18.02.2016 - Denis Walther
+
+# define the disk
+disk="dm-0"
+
+# grep used space
+used=`df -h | grep $disk | awk '{ print $5 }'`
+
+# define your hostname and your mail address
+hostname="your_hostname"
+mailto="your@mailaddress"
+
+if [ "$used" >= "90" ]; then
+	echo "#############################################
+DISK SPACE ALERT FOR $disk on $hostname!
+############################################# 
+
+`df -h | grep $disk`
+
+#############################################" | mail -s "DISK SPACE ALERT" $mailto
+
+else
+	exit 0
+fi
