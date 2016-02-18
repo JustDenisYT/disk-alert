@@ -4,10 +4,17 @@
 
 Clone:
 
+    https://github.com/MrAwesomeBro/disk-alert.git
+
 Chmod:
+
+    chmod +x disk_alert
 
 Run:
 
-Or put it into a crontab:
+    ./disk_alert
 
+Or put it into a crontab for twice a day:
+
+    00 12,00 * * * /opt/admin-scripts/disk-alert
 
